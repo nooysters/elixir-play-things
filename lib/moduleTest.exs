@@ -1,5 +1,4 @@
 defmodule Times do
-
   def double n do
     n*2
   end
@@ -15,23 +14,19 @@ defmodule Times do
   def prefix string do
     fn n -> "#{string} #{n}" end
   end
-
 end
 
 
 defmodule Factorial do
-
   def of(0), do: 1 
   def of(n), do: n * of(n-1) 
 
   def gcd(x,0), do: x
   def gcd(x,y), do: gcd(y, rem(x,y))
-
 end
 
 
 defmodule Floyd do
-
   def guess_my_number(_, number) when is_integer(number), do: number
 
   def guess_my_number(actual, range) when is_map(range) do 
@@ -48,10 +43,12 @@ defmodule Floyd do
     first.._ = range
     first..(my_guess-1)
   end
-
   def guess(my_guess, actual, range) when my_guess < actual do
     _..last = range
     (my_guess+1)..last
   end
 
+
+  def sumamalist([]), do: 0
+  def sumamalist([head | tail]), do: head + sumamalist(tail)
 end

@@ -23,15 +23,19 @@ fizzBuzzer.(15)
 fizzBuzzer.(16)
 fizzBuzzer.(17)
 
-ticTacToe = fn 
-  ([a,a,a,_,_,_,_,_,_]) -> "#{a} wins"
-  ([_,_,_,a,a,a,_,_,_]) -> "#{a} wins"
-  ([_,_,_,_,_,_,a,a,a]) -> "#{a} wins"
-  ([_,a,_,_,a,_,_,a,_]) -> "#{a} wins"
-  ([a,_,_,_,a,_,_,_,a]) -> "#{a} wins"
-  ([_,_,a,_,a,_,a,_,_]) -> "#{a} wins"
-  (arr) -> arr
-end
 
+defmodule ticTacToe do
+  def processBoard do
+    ([a,a,a,_,_,_,_,_,_]) -> "#{a} wins"
+    ([_,_,_,a,a,a,_,_,_]) -> "#{a} wins"
+    ([_,_,_,_,_,_,a,a,a]) -> "#{a} wins"
+    ([_,a,_,_,a,_,_,a,_]) -> "#{a} wins"
+    ([a,_,_,_,a,_,_,_,a]) -> "#{a} wins"
+    ([_,_,a,_,a,_,a,_,_]) -> "#{a} wins"
+    (arr) -> arr
+  end
+
+
+end
 
 IO.puts ticTacToe.(['','O','X','O','X','O','O','X','X'])
