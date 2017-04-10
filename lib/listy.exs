@@ -5,11 +5,9 @@ defmodule Listy do
   def do_flatten([h|t], tail) when is_list(h) do
     do_flatten(h, do_flatten(t, tail))
   end
-
   def do_flatten([h|t], tail) do
     [h|do_flatten(t, tail)]
   end
-
   def do_flatten([], tail) do
     tail
   end
@@ -44,4 +42,25 @@ defmodule Listy do
   def each([head|tail], func) do
     [func.(head)] ++ each(tail, func)
   end
+
+  # take implementation (mine)
+  def take([], _), do: []
+  def take(_, 0), do: []
+  def take([head | tail], num) when num > 0 do
+    [head] ++ take(tail, num-1)
+  end
+
+  # filter implementation
+  def filter(_, _, acc \\ [])
+  def filter([], _func, acc), do: acc
+  def filter([head|tail], func, acc) do
+    if func.(head) do
+      filter(tail, func, acc ++ [head])
+    else
+      filter(tail, func, acc)
+    end
+  end
+
 end 
+
+
